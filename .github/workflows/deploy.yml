@@ -7,7 +7,7 @@ on:
 
 env:
   
-  # alphanumeric string under 14 characters but the rg should not exist
+  # alphanumeric string under 14 characters however the rg should not exist
   RESOURCE_GROUP_NAME: azure-container-apps-rg
 
   # specify your preferred region
