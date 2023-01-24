@@ -8,7 +8,7 @@ on:
 env:
   
   # alphanumeric string under 14 characters however the rg should not exist
-  RESOURCE_GROUP_NAME: azure-container-apps-rg
+  RESOURCE_GROUP_NAME: azcontainerapprg
 
   # specify your preferred region
   REGION: westeurope
