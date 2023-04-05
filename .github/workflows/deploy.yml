@@ -8,7 +8,7 @@ on:
 env:
   
   # alphanumeric string under 14 characters however the rg should not exist
-  RESOURCE_GROUP_NAME: azcontainerapprg
+  RESOURCE_GROUP_NAME: rg-azcontainerapp
 
   # specify your preferred region
   REGION: westeurope
