@@ -8,7 +8,7 @@ on:
 env:
   
   # alphanumeric string under 14 characters however the rg should not exist
-  RESOURCE_GROUP_NAME: rgcontapp
+  RESOURCE_GROUP_NAME: rg-contapp
 
   # specify your preferred region
   REGION: westeurope
@@ -35,6 +35,16 @@ jobs:
       uses: azure/login@v1
       with:
         creds: ${{ secrets.AzureSPN }}
+    
+    - name: Install Bicep
+      uses: azure/CLI@v1
+      with:
+        inlineScript: >
+         echo "Installing Bicep"
+        
+         az config set bicep.use_binary_from_path=False
+         
+         az bicep install
 
     - name: Create resource group
       uses: azure/CLI@v1
@@ -44,15 +54,6 @@ jobs:
           echo "Executing 'az group create -l ${{ env.REGION }} -n ${{ env.RESOURCE_GROUP_NAME }}'"
 
           az group create -l ${{ env.REGION }} -n ${{ env.RESOURCE_GROUP_NAME }}
-
-    - name: Install Bicep
-      uses: azure/CLI@v1
-      with:
-        inlineScript: >
-         echo "Installing Bicep"
-        
-         az config set bicep.use_binary_from_path=False
-         az bicep install
 
     - name: Creating resources
       uses: azure/CLI@v1
